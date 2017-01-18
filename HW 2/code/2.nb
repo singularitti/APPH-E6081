@@ -1,0 +1,206 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5694,        198]
+NotebookOptionsPosition[      5139,        174]
+NotebookOutlinePosition[      5498,        190]
+CellTagsIndexPosition[      5455,        187]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rhohe", "=", 
+   RowBox[{"8.1", " ", 
+    RowBox[{"10", "^", "4"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Na", "=", 
+   RowBox[{"6.02", " ", 
+    RowBox[{"10", "^", "23"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", "mproton"}], "+", "mneutron"}], ")"}], "Na", "*", 
+    RowBox[{"10", "^", "3"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hb", "=", 
+   RowBox[{"6.63", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"10", "^", 
+       RowBox[{"-", "34"}]}], "/", "2"}], "/", "Pi"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"rhohe", "*", 
+    RowBox[{"Na", "/", "M"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"9.109", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "31"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mproton", "=", 
+   RowBox[{"1.6726", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "27"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mneutron", "=", 
+   RowBox[{"1.6750", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "27"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"1.3806", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "23"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.684581634304018*^9, 3.6845817098276157`*^9}, {
+  3.684581744912431*^9, 3.6845817964231*^9}, {3.684581836198743*^9, 
+  3.684581841261907*^9}, {3.684581980016323*^9, 3.6845820484908*^9}, {
+  3.6845823533008633`*^9, 3.6845823548385067`*^9}, {3.6845825621290913`*^9, 
+  3.68458257764567*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"kfhe", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"3", 
+      RowBox[{"Pi", "^", "2"}], " ", "n"}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{"1", "/", "3"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hb", "^", "2"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"kfhe", "^", "2"}], "/", "2"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", "mproton"}], "+", "mneutron"}], ")"}]}], "/", 
+   "b"}]}]}], "Input",
+ CellChangeTimes->{{3.684581712944523*^9, 3.684581798727804*^9}, {
+   3.6845818503586597`*^9, 3.684581850853527*^9}, 3.684581961758257*^9, {
+   3.6845820520827503`*^9, 3.6845820604193697`*^9}}],
+
+Cell[BoxData["4.90875966173866`"], "Output",
+ CellChangeTimes->{3.6845825853573227`*^9, 3.68458265610914*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rhont", "=", 
+   RowBox[{"10", "^", "20"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Na", "=", 
+   RowBox[{"6.02", " ", 
+    RowBox[{"10", "^", "23"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Mnt", "=", 
+   RowBox[{"mneutron", " ", "Na", " ", 
+    RowBox[{"10", "^", "3"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hb", "=", 
+   RowBox[{"6.63", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"10", "^", 
+       RowBox[{"-", "34"}]}], "/", "2"}], "/", "Pi"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nt", "=", 
+   RowBox[{"rhont", "*", 
+    RowBox[{"Na", "/", "Mnt"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mproton", "=", 
+   RowBox[{"1.6726", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "27"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mneutron", "=", 
+   RowBox[{"1.6750", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "27"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"1.3806", " ", 
+    RowBox[{"10", "^", 
+     RowBox[{"-", "23"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6845823679583683`*^9, 3.684582370790015*^9}, {
+  3.684582461641644*^9, 3.684582503657672*^9}, {3.6845826050408916`*^9, 
+  3.6845826382451572`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kfnt", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"3", 
+      RowBox[{"Pi", "^", "2"}], " ", "nt"}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{"1", "/", "3"}], ")"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6845824912506237`*^9, 3.684582501955329*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hb", "^", "2"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"kfnt", "^", "2"}], "/", "2"}], "/", 
+    RowBox[{"(", "mneutron", ")"}]}], "/", "b"}]}]], "Input",
+ CellChangeTimes->{{3.684582520224411*^9, 3.6845825262261553`*^9}}],
+
+Cell[BoxData["3.519590227449857`*^11"], "Output",
+ CellChangeTimes->{3.684582526935877*^9, 3.684582618134572*^9, 
+  3.684582656238578*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 675},
+WindowMargins->{{166, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1686, 52, 201, "Input"],
+Cell[CellGroupData[{
+Cell[2269, 76, 685, 21, 54, "Input"],
+Cell[2957, 99, 109, 1, 32, "Output"]
+}, Open  ]],
+Cell[3081, 103, 1306, 41, 180, "Input"],
+Cell[4390, 146, 298, 9, 32, "Input"],
+Cell[CellGroupData[{
+Cell[4713, 159, 269, 8, 32, "Input"],
+Cell[4985, 169, 138, 2, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+

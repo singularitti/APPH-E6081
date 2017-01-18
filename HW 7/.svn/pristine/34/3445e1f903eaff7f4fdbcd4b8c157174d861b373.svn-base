@@ -1,0 +1,236 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !BIB program = bibtex
+% !TEX spellcheck = en_US
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{breqn}
+\usepackage{miller}
+\usepackage{braket}
+\usepackage[space]{grffile}   % include graphics with spaces in their path
+
+
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
+\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+
+\title{Solid State Physics HW 7}								% Title
+\author{Qi Zhang (UNI: \texttt{qz2280})}								% Author
+\date{}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\newcommand*{\rmn}[1]{\romannumeral#1}
+\newcommand*{\RMN}[1]{\uppercase\expandafter{\romannumeral#1}}
+ \newenvironment{mpmatrix}{\begin{medsize}\begin{pmatrix}}%
+                {\end{pmatrix}\end{medsize}}%
+\newcount\colveccount
+\newcommand*\colvec[1]{
+    \global\colveccount#1
+    \begin{pmatrix}
+        \colvecnext
+    }
+    \def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+        \\
+        \expandafter\colvecnext
+        \else
+    \end{pmatrix}
+    \fi
+}
+\newcommand*{\tran}{^{\mkern-1.5mu\mathsf{T}}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+	\vspace*{0.5 cm}
+	\includegraphics[scale = 0.25]{NewEngineeringDkBlue.png}\\[1.0 cm]	% University Logo
+	\textsc{\Large Applied Physics and Applied Mathematics\\
+		\large with Materials Science and Engineering}\\[2.0 cm]	% University Name
+	\textsc{\Large APPH 6081}\\[0.5 cm]				% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\emph{Submitted To:}\\
+			Chris Marianetti\\
+			Assoc. Professor\\
+			APAM Department\\
+		\end{flushleft}
+	\end{minipage}~
+	\begin{minipage}{0.4\textwidth}
+
+		\begin{flushright} \large
+			\emph{Submitted By :} \\
+			Qi Zhang\\
+			\texttt{qz2280}\\
+			Fall 2016\\
+		\end{flushright}
+
+	\end{minipage}\\[2 cm]
+
+
+\end{titlepage}
+
+\section{Problem \RMN{1}}
+\begin{enumerate}[(a)]
+	\item  From last homework, we derive the total Hamiltonian under the orbital
+	      basis, written as
+	      \begin{equation}
+	      	\begin{split}
+	      		H_{\bm{k}}
+	      		&= \frac{1}{2}\bigg(
+	      		\begin{pmatrix}
+	      			\varepsilon_d & t_{pd}        \\
+	      			t_{pd}        & \varepsilon_p \\
+	      		\end{pmatrix} + \exp(ika)
+	      		\begin{pmatrix}
+	      			0      & 0 \\
+	      			t_{pd} & 0 \\
+	      		\end{pmatrix} +
+	      		\exp(-ika)
+	      		\begin{pmatrix}
+	      			0 & t_{pd} \\
+	      			0 & 0      \\
+	      		\end{pmatrix}\bigg)\\
+	      		&= \frac{1}{2}
+	      		\begin{pmatrix}
+	      			\varepsilon_p + 1   & t_{pd}(1+\exp(-ika)) \\
+	      			t_{pd}(1+\exp(ika)) & \varepsilon_p        \\
+	      		\end{pmatrix}.
+	      	\end{split}
+	      \end{equation}
+	      So the eigenvalues of the Hamiltonian is
+	      \begin{equation}
+	      	\varepsilon=\varepsilon_p + \frac{1}{2} \pm \frac{1}{2}\sqrt{8 t^2 (\cos (k a)+1)+1}.
+	      \end{equation}
+	      See Fig. \ref{fig:1-a} for the band structure plot of the result in the first BZ.
+	      \begin{figure}[h]
+	      	\centering
+	      	\includegraphics[width=0.7\linewidth]{pro_1_a.pdf}
+	      	\caption{Band structure plot of the result in the first BZ.}
+	      	\label{fig:1-a}
+	      \end{figure}
+	\item Derive $\nabla_{\bm{k}} \varepsilon(\bm{k})$ we have
+	      \begin{equation}
+	      	\begin{split}
+	      		\nabla_{\bm{k}} \varepsilon(\bm{k})
+	      		&= \pm\frac{2 a t^2 \sin (a k)}{\sqrt{8 t^2 (\cos (a k)+1)+1}}\\
+	      		&= \pm\frac{a \sqrt{(4 (\varepsilon -\varepsilon_p +\frac{1}{2})^2-1) (-4 (\varepsilon -\varepsilon_p +\frac{1}{2})^2+16 t^2+1)}}{8 (\varepsilon -\varepsilon_p +\frac{1}{2})},
+	      	\end{split}
+	      \end{equation}
+	      if we let $\varepsilon_p - \frac{1}{2} = 0$, then
+	      \begin{equation}
+	      	\nabla_{\bm{k}} \varepsilon(\bm{k}) =
+	      	\pm\frac{a \sqrt{(4 \varepsilon^2-1) (-4 \varepsilon^2+16 t^2+1)}}{8 \varepsilon}.
+	      \end{equation}
+	      so the DOS is
+	      \begin{equation}
+	      	\begin{split}
+	      		g(\varepsilon)
+	      		&= \frac{1}{4\pi^3}
+	      		\int_{S_n(\varepsilon)} dS\frac{1}{\Big\lvert \frac{a \sqrt{(4 \varepsilon^2-1) (-4 \varepsilon^2+16 t^2+1)}}{8 \varepsilon} \Big\rvert}\\
+	      		&= \frac{1}{4\pi^3}
+	      		\int_{S_n(\varepsilon)} dS
+	      		\bigg\lvert\frac{8 \varepsilon}{a \sqrt{(4 \varepsilon^2-1) (-4 \varepsilon^2+16 t^2+1)}}\bigg\rvert\\
+	      		&= gg
+	      	\end{split}
+	      \end{equation}
+	\item
+\end{enumerate}
+
+\section{Problem \RMN{1}}
+\begin{enumerate}[(a)]
+	\item Draw the graphene structure as Fig. \ref{fig:graphen}, with dashed line
+	      denoting a unit cell of graphene. Here the length of each edge of the honeycomb
+	      is $a$, the primitive vectors are $\bm{a}_1$ and $\bm{a}_2$.
+	      \begin{figure}[h]
+	      	\centering
+	      	\includegraphics[width=0.5\linewidth]{graphene.png}
+	      	\caption{The honeycomb structure of graphene.}
+	      	\label{fig:graphen}
+	      \end{figure}
+	      So in each cell, there are $2$ atomic basis, the red orbital and the green orbital,
+	      locates at $(0, 0)$ and $(1, 0)$. For green orbital, consider the eigenfunction
+	      of translation operator to be
+	      \begin{equation}
+	      	\begin{split}
+	      		\psi(\bm{k}, \bm{r})
+	      		&= \frac{1}{\sqrt{1\times 3}} \sum_\nu \sum_{\bm{R}} \exp(i\bm{k}
+	      		\cdot \bm{R}) \phi_\nu(\bm{r}-\bm{R})\\
+	      		&= \frac{1}{\sqrt{3}} \Big(\phi_{1}(\bm{r}) + \sum_{\bm{R}} \exp(i\bm{k}
+	      		\cdot \bm{R}) \phi_{2}(\bm{r}-\bm{R})\Big),
+	      	\end{split}
+	      \end{equation}
+	      where $\phi_1(\bm{r})$ denotes green orbital itself, $\phi_2(\bm{r})$
+	      denotes $3$ nearest red orbitals.
+	      Similarly, for red orbital, the eigenfunction
+	      of translation operator is
+	      \begin{equation}
+	      	\psi(\bm{k}', \bm{r})
+	      	= \frac{1}{\sqrt{3}} \Big(\phi_{2}(\bm{r}) + \sum_{\bm{R}'} \exp(i\bm{k}'
+	      	\cdot \bm{R}') \phi_{1}(\bm{r}-\bm{R}')\Big).
+	      \end{equation}
+	      So the Hamiltonian is
+	      \begin{equation}
+	      	\begin{split}
+	      		H_{\bm{k}}
+	      		&= \frac{1}{\sqrt{3}}\sum_{\mu,\nu}\sum_{\bm{R}} \exp(i\bm{k}\cdot\bm{R})
+	      		\braket{\phi_\mu(\bm{r}) | H | \phi_\nu(\bm{r} - \bm{R})},
+	      	\end{split}
+	      \end{equation}
+	      where
+	      \begin{equation}
+	      	\begin{split}
+	      		\braket{\phi_1(\bm{r}) | H | \phi_1(\bm{r})}              = 0, \\
+	      		\braket{\phi_1(\bm{r}) | H | \phi_2(\bm{r}- (0, 0))} =
+	      		\braket{\phi_1(\bm{r}) | H | \phi_2(\bm{r} - (1, 2))} =
+	      		\braket{\phi_1(\bm{r}) | H | \phi_2(\bm{r} - (-1, 1))}    = t, \\
+	      		\braket{\phi_2(\bm{r}) | H | \phi_1(\bm{r} - (1, 0))} =
+	      		\braket{\phi_2(\bm{r}) | H | \phi_1(\bm{r} - (0, 1))} =
+	      		\braket{\phi_2(\bm{r}) | H | \phi_1(\bm{r} - (-1, -1))}   = 3t, \\
+	      		\braket{\phi_2(\bm{r}) | H | \phi_2(\bm{r})}              = 0.
+	      	\end{split}
+	      \end{equation}
+	      Written as matrix form, it will be
+        \begin{equation}
+          H_{\bm{k}} = \frac{1}{\sqrt{3}}
+          \begin{pmatrix}
+            0 & t(1 + \exp(i ()))
+          \end{pmatrix}
+        \end{equation}
+\end{enumerate}
+\end{document}
