@@ -6,6 +6,10 @@
 from __future__ import division
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+
+my_path = os.path.abspath(__file__ + "/../../")
+plt.style.use("classic")
 
 a = 1
 gamma = 200
@@ -26,4 +30,4 @@ plt.ylabel(r'$E_{\mathrm{total}}$')
 plt.xlim((-0.5, 0.5))
 plt.ylim((0, 100))
 # plt.show()
-plt.savefig("/Users/Neo/Documents/APPH 6081/HW 8/images/pro-2.pdf")
+plt.savefig(my_path + "/images/pro-2.pdf")

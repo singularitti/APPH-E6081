@@ -9,6 +9,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.cm as cm
 from matplotlib.colors import LogNorm
 
+plt.style.use("classic")
 
 t = 2.5
 a = 1
